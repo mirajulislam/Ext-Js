@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <title>Sign in</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<form th:action="@{/datasave}" method="post" >
+  <select name="courseName" class="form-control">
+  <option value="Physics">Physics</option>
+  <option value="Chymistry">Chymistry</option>
+  <option value="Algo">Algo</option>
+  </select>
+  <br>
+    <select name="facultyName" class="form-control">
+  <option value="Shakib">Shakib</option>
+  <option value="Tamim">Tamim</option>
+  <option value="Musfiq">"Musfiq"</option>
+  </select>
+  <br>
+   <select name="batchName" class="form-control">
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  </select><br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+  
+</form>
+</body>
+</html>
