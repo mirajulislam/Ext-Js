@@ -1,0 +1,364 @@
+insert
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <title>Save</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+
+<body>
+ <div class="container">
+  
+      <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+              <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+     </div>
+             </div>
+         </div> 
+
+
+	<div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="batchName">Batch Name</label>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon" style="width: 2.6rem">
+								<i class="fa fa-at"></i>
+							</div>
+
+
+							<select name="batchName" id="batchName" class="form-control">
+								<option value="">.......</option>
+								<option th:each="batch:${batches}"
+								th:value="${batch.batchName}"
+								th:utext="${batch.batchName}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-control-feedback">
+						
+				</div>
+				</div>
+			</div>
+
+               <div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="coureName">Course Name</label>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon" style="width: 2.6rem">
+								<i class="fa fa-at"></i>
+							</div> 
+			
+		                  <select name="coursename" id="coursename" class="form-control">
+		                  <option value=""> -- </option>					
+								<option value="" th:each="course : ${courselist}"
+								th:value="${course.coursename}"
+								th:text="${course.coursename}"></option>
+		                  </select>
+							
+		
+						
+						</div>
+					</div>
+				</div> 
+		 		<div class="col-md-3">
+					<div class="form-control-feedback">
+
+ -->					</div>
+				</div>
+			</div>
+
+
+			 <div class="row">
+				<div class="col-md-3 field-label-responsive">
+					<label for="facultyName">Faculty Name</label>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<div class="input-group mb-2 mr-sm-2 mb-sm-0">
+							<div class="input-group-addon" style="width: 2.6rem">
+								<i class="fa fa-at"></i>
+							</div>
+
+
+
+							<select name="Name" id="Name"class="form-control">
+								<option value="">.......</option>
+								<option th:each="faculty:${facultys}"
+								th:value="${faculty.Name}"
+								th:text="${faculty.Name}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-control-feedback">
+						
+					</div>
+				</div>
+			</div>
+
+ <div class="row">
+             <div class="col-md-3"></div>
+             <div class="col-md-6">
+                 <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i>Save</button>
+             </div>
+         </div>
+ </div>
+</body>
+</html>
+
+
+
+result show
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8" />
+
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="card">
+
+
+
+            <div class="card-block">
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Batch Name</th>
+                            <th>Capacity</th>
+                             <th>Course Name</th>
+                            <th>Day</th>
+                            <th>Faulty Name</th>
+                            <th>Period</th>
+                            <th>Room</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr th:each="result :${data}">
+
+                            <td th:text="${result.id}"></td>
+
+                            <td th:text="${result.batchName}"></td>
+
+                            <td th:text="${result.capacity}"></td>
+
+                           <td th:text="${result.courseName}"></td>
+
+                            <td th:text="${result.day}"></td>
+
+                            <td th:text="${result.facultyName}"></td>
+                          <td th:text="${result.period}"></td>
+                         <td th:text="${result.room_no}"></td>
+
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <hr />
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+
+Routing show
+
+
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8" />
+
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="card">
+
+
+
+            <div class="card-block">
+
+                <table class="table table-hover">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Day</th>
+                            <th>Priod</th>
+                             <th>Room No</th>
+
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr th:each="routine :${routine_result}">
+
+                            <td th:text="${routine.id}"></td>
+
+                            <td th:text="${routine.day}"></td>
+
+                            <td th:text="${routine.period}"></td>
+
+                           <td th:text="${routine.roomNo}"></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <hr />
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>
+
+
+result 
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.App.Batch.Batch;
+import com.App.Batch.BatchService;
+import com.App.Course.Course;
+import com.App.Course.CourseService;
+import com.App.Faculty.Faculty;
+import com.App.Faculty.FacultyService;
+import com.App.Result.Result;
+import com.App.Result.ResultService;
+import com.App.Routine.Routine;
+import com.App.Routine.RoutineService;
+
+@Controller
+public class ResultDisplay {
+	@Autowired
+  private	ResultService resultService;
+	@Autowired
+	  private RoutineService routineService;
+	@Autowired
+	  private  BatchService batchService;
+	@Autowired
+	  private CourseService courseService;
+	
+	@Autowired
+	  private FacultyService facultyService;
+	
+	@RequestMapping("/result")
+	public String viewResult(Model model) {
+		List<Result> resultShow =resultService.listAllResults();
+		model.addAttribute("data", resultShow);
+		
+		return "user/ResultShow";
+	}
+
+	
+	@RequestMapping("/routine")
+	public String viewRoutine(Model model) {
+		List<Routine> routineShow =routineService.listAllRoutines();
+		model.addAttribute("routine_result", routineShow);
+		
+		return "user/RoutingShow";
+	}
+	
+	@RequestMapping("/routinegenerate")
+	public String routineRoutine(Model model) {
+		
+		List<Course>courselist=courseService.listCourseAll();
+		model.addAttribute("courselist", courselist);
+		
+		List<Batch>batchlist=batchService.listAllBatches();
+		model.addAttribute("batches",batchlist);
+		
+		List<Faculty>facultyList=facultyService.listFacultyAll();
+		model.addAttribute("facultys",facultyList);
+		
+		return "user/insert";
+	}
+}
+
+
+
+
+
+
